@@ -1,0 +1,32 @@
+        <!-- MENU LATERAL -->
+<aside>
+    <ul>
+        <a href="">
+            <li class="menu-item">Inicio</li>
+        </a>
+        <a href="">
+            <li class="menu-item">Serviços Online UCS - SOU</li>
+        </a>
+
+        {% if cargo == 'admin' or cargo == 'ti' %}
+                    
+            <li class="menu-item" onclick="toggleSubmenu(this)">Gestão de TI</li>
+
+        <ul class="submenu">
+            <a href="">
+                <li>Cadastrar senha</li>    
+            </a>
+        </ul>
+
+        {% endif %}
+
+        {% if cargo == 'admin' %}
+            <li class="menu-item" onclick="toggleSubmenu(this)">  Gestão do Portal  </li>
+                <ul class="submenu">
+                    <li class="menu-item" id="regFunc">Registro de funcionários</li>
+                    <li class="menu-item" id="funcList">Lista de Funcionários</li>
+                </ul>
+        {% endif %}
+    </ul>
+</aside>
+

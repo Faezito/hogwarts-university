@@ -1,0 +1,11 @@
+<section class="center flex" id="funcList">
+    {% if funcionarios is not defined %}
+    <p style="color: red;">Lista de funcionários não definida!</p>
+    {% endif %}
+
+    <ul>
+        {% for f in funcionarios  %}       
+            <li>{{ f.nome }} - {{ f.cargo }}</li>
+        {% endfor %}
+    </ul>
+</section>

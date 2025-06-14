@@ -1,0 +1,33 @@
+create table users (
+    id integer primary key,
+    firstName varchar(50) not null,
+    lastName varchar(50) not null,
+    middleName char(150),
+    username varchar(30) not null unique,
+    email varchar not null unique,
+    password text not null,
+    classe_id integer
+);
+
+insert into users (
+ firstName,
+ lastName,
+ middleName,
+ username,
+ email,
+ password )
+ VALUES (
+ 'Matheus',
+ 'Faé',
+ 'Machado',
+ 'mfae',
+ 'matheusfae@gmail.com',
+ 'fae'
+ );
+
+
+ admin
+ 4321
+
+ mfae
+ fae

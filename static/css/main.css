@@ -1,0 +1,251 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Didact Gothic', sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--fontbase);
+    }
+
+:root {
+    --radial: radial-gradient(circle at center, #70a7db 0%, #2d75b1 70%, #174570 100%);
+    --azulzinho: #d1dfec;
+    --fontbase: rgb(0, 1, 12);
+    --cinza: #34495e;
+    
+}
+
+    body {
+      font-family: sans-serif;
+      color: var(--fontbase);
+    }
+
+    #corpo {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav {
+      padding: 10px 20px;
+      height: 70px;
+      background: var(--radial);
+      /* #3871bb */
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 5px;
+    }
+
+    
+    /* Botão hambúrguer */
+    #burguer_menu {
+        width: 50px;
+        justify-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .hamburguer {
+      width: 35px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 2;
+      margin-bottom: 7px;
+    }
+
+    .hamburguer span {
+      height: 4px;
+      background: rgb(255, 255, 255);
+      border-radius: 2px;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    /*   Logo UCS   */
+
+#logo-ucs{
+    display: flex;
+    vertical-align: sub;
+}
+
+#logo-ucs .titulo{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin-left: 3px;
+    display: inline-block;
+    
+}
+
+#logo-ucs img {
+    width: 120px;
+    height: 40px;
+    vertical-align: sub;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/*   Perfil   */
+
+#perfil {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#profilepic{
+    max-width: 50px;
+    border-radius: 50%;
+}
+
+.google {
+    width: 30px;
+    height: 30px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*   Menu Lateral   */
+
+aside {
+    width: 20%;
+    background-color: #e3e8ff;
+    min-height: 95vh;
+}
+
+#sidemenu { 
+    display: flex;
+}
+
+aside ul {
+    font-size: 20px;
+}
+
+aside li {
+    padding: 10px 20px;
+    list-style-type: none;
+}
+
+.menu-item {
+    cursor: pointer;
+}
+
+.menu-item:hover{
+    background-color: #d1dfec;
+}
+
+.submenu {
+    display: none;
+    padding-left: 25px;
+}
+
+.submenu .menu-item a {
+    display: block;
+    padding: 8px 0;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    background-color: var(--azulzinho);
+}
+
+.menu-item.active + .submenu {
+    display: block;
+    background-color: var(--azulzinho);
+}
+
+
+
+/* Main Section */
+
+#main-area {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 500px;
+    gap: 30px;
+}
+
+#main-section {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;    
+    padding: 20px;
+}
+
+#profileMenu {
+    display: none;
+    text-align: right;
+    background-color: var(--azulzinho);
+    border-radius: 10px;
+    font-size: 24px;
+    z-index: 2;
+    top: 75px;
+    right: 0;
+    position: absolute;
+    width: 200px;
+    height: fit-content;
+    justify-content: right;
+    padding: 10px 0;
+}
+
+#profileMenu ul {
+        list-style-type: none;
+        width: 100%;
+        margin: 0;
+    }
+
+    #profileMenu li {
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    #profileMenu li:hover {
+        background-color: #b5d1eb;
+        cursor: pointer;
+    }
+
+
+    /* ALERTAS */
+.alert {
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: bold;
+        z-index: 3;
+      }
+
+.alert.error {
+        background-color: #f8d7da;
+        color: #842029;
+        z-index: 3;
+      }
+
+.alert.success {
+        background-color: #d1e7dd;
+        color: #0f5132;
+      }
+
+#funcList ul {
+    list-style-type: none;
+    text-align: left;
+}

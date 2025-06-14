@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% include "content/alert.html" %}
+
+{% block body %}
+    <nav>
+
+        <a href="#" id="logo-ucs">
+            <img src="https://ucsvirtual.ucs.br/midia/imagens/logo-ucs.png" alt="Logotipo do UCS Virtual">
+            <span class="titulo">Virtual</span>
+        </a>
+    </div>
+
+    </nav>
+    
+    <div class="center flex" id="loginForm">
+            <form action="/login" method="POST" id="login">
+                <input type="text" name="username" id="username" autofocus autocomplete="off" placeholder="Digite seu usuário" aria-label="Digite seu usuário" required> 
+                <input type="password" name="password" id="password" autofocus autocomplete="off" placeholder="Digite sua senha" aria-label="digite sua senha" required>
+
+                <p>Problemas, dúvidas ou sugestões, enviar e-mail para <a href="#">matheusmfae@gmail.com</a></p>
+
+                <button type="submit" id="acessar"> Acessar </button>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul id="mensagens">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
+
+            </form>
+    </div>
+
+<!--
+    {% if message %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const message = "{{ message | safe }}";
+            if (message) {
+                alert(message);
+            }
+        });
+    </script>
+    
+    {% endif %}
+-->
+
+{% endblock %}

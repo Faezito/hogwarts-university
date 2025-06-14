@@ -1,0 +1,26 @@
+    <h2>Adicionar novo usuário</h2>
+        <form method="POST" action="{{ url_for('addUser') }}" id="addUser-form" class="center flex">
+            <div id="labels">
+                <label for="firstName">Nome:</label>
+                <label for="lastName">Sobrenome:</label>
+                <label for="username">Usuário:</label>
+                <label for="email">Email:</label>
+                <label for="password">Senha:</label>
+                <label for="cargo">Cargo:</label>
+            </div>
+                
+            <div id="inputs">
+                <input type="text" name="firstName" id="firstName">
+                <input type="text" name="lastName" id="lastName">
+                <input type="text" name="username" id="username">
+                <input type="email" name="email" id="email">
+                <input type="password" name="password" id="password">
+                <select name="cargo" id="cargo">
+                    <option value="admin">Admin</option>
+                    <option value="ti">TI</option>
+                    <option value="user">Usuário</option>
+                </select>
+            </div>        
+        </form>
+        <button type="submit" form="addUser-form" id="addUser-button">Cadastrar</button>
+

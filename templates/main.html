@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% include "content/alert.html" %}
+{% include "Nav.html" %}
+
+{% block body %}
+
+<!-- ÁREA PRINCIPAL -->    
+
+<div id="profileMenu">
+    <ul>
+        <li>Editar Perfil</li>
+        <a href="{{ url_for('logout') }}">
+            <li>Sair</li>
+        </a>
+    </ul>
+</div>
+
+    <div id="corpo">
+        {% include "menu-lateral.html" %}
+        <section id="main-section"></section>  
+    </div>
+</div>
+
+{% endblock %}
