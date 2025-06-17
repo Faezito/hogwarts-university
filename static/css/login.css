@@ -21,14 +21,14 @@
     }
 
 
-    /*   Logo UCS   */
+    /*   Logo Hog   */
 
-#logo-ucs{
+#logo-hog{
     display: flex;
     vertical-align: sub;
 }
 
-#logo-ucs .titulo{
+#logo-hog .titulo{
     font-family: 'Didact Gothic', sans-serif;
     font-size: 32px;
     font-weight: bold;
@@ -37,10 +37,11 @@
     
 }
 
-#logo-ucs img {
+#logo-hog img {
     width: 120px;
     height: 40px;
     vertical-align: sub;
+    filter: invert(100%);
 }
 
 nav a {
@@ -62,8 +63,8 @@ nav a {
 }
 
 #loginForm {
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: auto;
   justify-self: center;
   color: rgb(0, 0, 0);
   background: radial-gradient(circle at center, #70a7db 0%, #2d75b1 70%, #174570 100%);

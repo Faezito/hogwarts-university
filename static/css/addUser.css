@@ -1,4 +1,4 @@
-#addUser-form {
+#addUser-form, #searchUser-form {
     flex-direction: row;
     width: 100%;
 }
@@ -25,6 +25,25 @@
 }
 
 #addUser-form input, select {
+    padding: 5px 10px;
+}
+
+#addUser-button {
+    width: 200px;
+    background-color: #2d75b1;
+    color: antiquewhite;
+    align-self: center; 
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#searchUser-form input, label {
+   margin-bottom: 15px; 
+   height: 20px;
+}
+
+#searchUser-form input, select {
     padding: 5px 10px;
 }
 

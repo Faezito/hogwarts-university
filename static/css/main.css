@@ -11,8 +11,8 @@
     }
 
 :root {
-    --radial: radial-gradient(circle at center, #70a7db 0%, #2d75b1 70%, #174570 100%);
-    --azulzinho: #d1dfec;
+    --radial: radial-gradient(circle at center, #79a1c4 0%, #205179 70%, #091929 100%);
+    --azulzinho: #d3dfce;
     --fontbase: rgb(0, 1, 12);
     --cinza: #34495e;
     
@@ -29,10 +29,10 @@
     }
 
     nav {
-      padding: 10px 20px;
-      height: 70px;
+      padding: 10px 15px;
+      height: 75px;
+      max-width: 100%;
       background: var(--radial);
-      /* #3871bb */
       color: white;
       display: flex;
       justify-content: space-between;
@@ -43,52 +43,46 @@
     /* Botão hambúrguer */
     #burguer_menu {
         width: 50px;
-        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
     }
 
+    #burguer_menu:hover {
+        cursor: pointer;
+    }
+    
+    #burguer_menu img {
+            width: 35px;
+            filter: invert(100%);            
+        }
+    
     .menu-toggle {
       display: none;
     }
 
-    .hamburguer {
-      width: 35px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      z-index: 2;
-      margin-bottom: 7px;
-    }
+    
 
-    .hamburguer span {
-      height: 4px;
-      background: rgb(255, 255, 255);
-      border-radius: 2px;
-      transition: 0.3s ease;
-      font-weight: bold;
-    }
+    /*   Logo HOG   */
 
-    /*   Logo UCS   */
-
-#logo-ucs{
+#logo-hog{
     display: flex;
-    vertical-align: sub;
 }
 
-#logo-ucs .titulo{
+#logo-hog .titulo{
     font-family: 'Didact Gothic', sans-serif;
     font-size: 32px;
     font-weight: bold;
     margin-left: 3px;
-    display: inline-block;
-    
+    display: flex;
 }
 
-#logo-ucs img {
-    width: 120px;
-    height: 40px;
-    vertical-align: sub;
+#logo-hog img {
+    width: 60px;
+    height: 50px;
+    top: 0;
+    margin-right: 10px;
 }
 
 nav a {
@@ -109,6 +103,7 @@ nav a {
 #profilepic{
     max-width: 50px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .google {
@@ -120,15 +115,17 @@ nav a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 
 /*   Menu Lateral   */
 
 aside {
-    width: 20%;
-    background-color: #e3e8ff;
+    width: 16%;
+    background-color: #d3dfce;
     min-height: 95vh;
+    padding-left: 10px;
 }
 
 #sidemenu { 
@@ -149,7 +146,7 @@ aside li {
 }
 
 .menu-item:hover{
-    background-color: #d1dfec;
+    background-color: #b3d6af;
 }
 
 .submenu {
@@ -160,7 +157,7 @@ aside li {
 .submenu .menu-item a {
     display: block;
     padding: 8px 0;
-    color: #ecf0f1;
+    background-color: #b3d6af;
     text-decoration: none;
 }
 

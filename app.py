@@ -15,6 +15,42 @@ def get_user(username):
     conn.close()
     return user
 
+def get_full_user(user_id, username, email, firstName, lastName):
+    conn = sqlite3.connect('unihog.db')
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    filters = []
+    params = []
+
+    if username:
+        filters.append('username = ?')
+        params.append(username)
+    if user_id:
+        filters.append('id = ?')
+        params.append(user_id)
+    if email:
+        filters.append('email=?')
+        params.append(email)
+    if firstName:
+        filters.append('firstName=?')
+        params.append(firstName)
+    if lastName:
+        filters.append('lastName=?')
+        params.append(lastName)
+
+    if not filters:
+        conn.close()
+        return None
+
+    query = f"SELECT * FROM users WHERE {' OR '.join(filters)} LIMIT 1"
+
+    cursor.execute(query, params)    
+    user = cursor.fetchone()
+
+    conn.close()
+    return {key: user[key] for key in user.keys()} if user else None
+
 
 @app.route('/')
 def index():
@@ -33,10 +69,10 @@ def login():
         user = get_user(username)
 
         if user:
-            hashed_password = user[6]
+            hashed_password = user[5]
             if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
                 session['username'] = username
-                session['cargo'] = user[8]
+                session['cargo'] = user[7]
                 return redirect(url_for('profile', username=username))
             else:
                 flash('Usuario ou senha inválidos!', 'error')
@@ -77,7 +113,6 @@ def addUser():
 
     username = request.form.get('username')
     firstName = request.form.get('firstName')
-    middleName = request.form.get('middleName')
     lastName = request.form.get('lastName')
     email = request.form.get('email')
     password = request.form.get('password')
@@ -100,8 +135,8 @@ def addUser():
 
     hashedPassword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    cursor.execute('INSERT INTO users (firstName, lastName, middleName, username, email, password, classe_id, cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
-                   (firstName, middleName, lastName, username, email, hashedPassword.decode('utf-8'), classe_id, cargo))
+    cursor.execute('INSERT INTO users (firstName, lastName, username, email, password, classe_id, cargo) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+                   (firstName, lastName, username, email, hashedPassword.decode('utf-8'), classe_id, cargo))
     conn.commit()
     conn.close()
 
@@ -130,6 +165,31 @@ def funcList():
         listaFuncionarios.append({'nome': nomeCompleto, 'cargo': cargo})
 
     return render_template("content/lista-de-funcionarios.html", funcionarios=listaFuncionarios)
+
+@app.route('/<user>/searchUser', methods=['GET','POST'])
+def searchUser(user):
+    logado = session.get('cargo')
+
+    if request.method == 'POST':
+        user_id = request.form.get('id')
+        username = request.form.get('username')
+        firstName = request.form.get('firstName')
+        lastName = request.form.get('lastName')
+        email = request.form.get('email')
+
+        user = get_full_user(username=username, user_id=user_id, firstName=firstName, lastName=lastName, email=email)
+
+        if user:
+            return render_template('content/editUser.html', user=user, logado=logado)
+        else:
+            flash("Usuário não encontrado", 'error')
+            return redirect(url_for('content_addUser'))
+    return render_template("content/searchForm.html", logado=logado)
+
+#@app.route("/editUser/<user>")
+#def editUser():
+#    if request.method == 'POST':
+        
 
 
 if __name__ == "__main__":

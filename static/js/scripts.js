@@ -57,4 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Erro ao carregar lista de funcionários:', error)
             })
         })
+ 
+        const searchUser = document.getElementById('searchUser')
+        searchUser.addEventListener('click', () => {
+            fetch('/<user>/searchUser')
+            .then(r => r.text())
+            .then(html => {
+                main.innerHTML = html
+            })
+            .catch(error => {
+                console.error('Erro ao carregar usuário:', error)
+            })
+        })
     })

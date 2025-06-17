@@ -1,8 +1,7 @@
 create table users (
     id integer primary key,
     firstName varchar(50) not null,
-    lastName varchar(50) not null,
-    middleName char(150),
+    lastName varchar(300) not null,
     username varchar(30) not null unique,
     email varchar not null unique,
     password text not null,
@@ -12,17 +11,17 @@ create table users (
 insert into users (
  firstName,
  lastName,
- middleName,
  username,
  email,
- password )
+ password,
+ cargo )
  VALUES (
  'Matheus',
  'Faé',
- 'Machado',
  'mfae',
  'matheusfae@gmail.com',
- 'fae'
+ '$2b$12$V7NjOmuVIyfAYFywUIuQtuwKiPTkZyQv8UeBKBiO8.O.yPLcLEQ1G',
+'admin'
  );
 
 

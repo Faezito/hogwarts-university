@@ -1,0 +1,28 @@
+    <h2>Editar usuário</h2>
+        <form method="POST" action="" id="searchUser-form" class="center flex">
+            <div id="labels">
+                <label for="id">Matrícula:</label>
+                <label for="firstName">Nome:</label>
+                <label for="lastName">Sobrenome:</label>
+                <label for="username">Usuário:</label>
+                <label for="email">Email:</label>
+            </div>
+                
+            <div id="inputs">
+                <input type="text" name="id" id="id" placeholder="{{ user.id }}" disabled>
+                <input type="text" name="firstName" id="firstName" placeholder="{{ user.firstName }}" disabled>
+                <input type="text" name="lastName" id="lastName" placeholder="{{ user.lastName }}" disabled>
+                <input type="text" name="username" id="username" placeholder="{{ user.username }}" disabled>
+                <input type="email" name="email" id="email" placeholder="{{ user.email }}">
+                <select name="cargo" id="cargo">
+                    <option value="{{ user.cargo }}" disabled>{{ user.cargo }}</option>
+                    {% if logado == 'admin' %}
+                    <option value="admin">Administrador</option>
+                    <option value="funcionario">Funcionário</option>
+                    {% endif %}
+                    <option value="">Aluno</option>
+                </select>
+            </div>        
+        </form>
+        <button type="submit" form="searchUser-form" id="addUser-button">Procurar</button>
+
